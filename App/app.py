@@ -1,4 +1,4 @@
-# done by https://github.com/GANESH312006 and https://github.com/Shad.com
+# done by https://github.com/GANESH312006 and https://github.com/Shad18.com
 
 try:
   import customtkinter as ctk 
