@@ -1,3 +1,5 @@
+# done by https://github.com/GANESH312006 and https://github.com/Shad.com
+
 try:
   import customtkinter as ctk 
   from imageWidgets import * 
