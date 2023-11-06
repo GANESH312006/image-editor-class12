@@ -147,8 +147,8 @@ class Revertbtn(ctk.CTkButton):
   def __init__(self,parent,*args):
     # images 
     self.ctkImage = ctk.CTkImage(
-      light_image = Image.open('class12ProjImageEditor-main\\Images\\back (1).png'), 
-      dark_image = Image.open('class12ProjImageEditor-main\\Images\\backward.png')
+      light_image = Image.open('Images\\back (1).png'), 
+      dark_image = Image.open('Images\\backward.png')
     )
     super().__init__(
       master=parent,
@@ -176,8 +176,8 @@ class FilePathPanel(Panel):
     
     # ctk Image
     self.imageBtn = ctk.CTkImage(
-      light_image = Image.open('class12ProjImageEditor-main\\Images\\case-file.png'), 
-      dark_image = Image.open('class12ProjImageEditor-main\\Images\\case-file.png')
+      light_image = Image.open('Images\\case-file.png'), 
+      dark_image = Image.open('Images\\case-file.png')
     )
     
     self.openExplorer = ctk.CTkButton( 
@@ -206,8 +206,8 @@ class SaveBtn(ctk.CTkButton):
     
     # ctk Image
     self.imageBtn = ctk.CTkImage(
-      light_image = Image.open('class12ProjImageEditor-main\\Images\\diskette.png'), 
-      dark_image = Image.open('class12ProjImageEditor-main\\Images\\diskette.png')
+      light_image = Image.open('Images\\diskette.png'), 
+      dark_image = Image.open('Images\\diskette.png')
     )
     
     super().__init__(

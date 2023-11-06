@@ -270,15 +270,19 @@ class MenuBar(tk.Menu):
     
     # helpMenu
     helpMenu = tk.Menu(master = self, tearoff = False)
-    helpMenu.add_command(label = 'UserManuel (ctrl-u)', command = lambda:self.openWeb('https://github.com/Shad18/KeyboardShortcuts/blob/main/User%20Manual'))
+    helpMenu.add_command(label = 'UserManuel (ctrl-u)',
+                         command = lambda:self.openWeb('https://github.com/Shad18/KeyboardShortcuts/blob/main/User%20Manual'))
+    
     helpMenu.add_command(
       label = 'Keyboard Shortcuts (alt-k)',
       command = lambda : self.openWeb(self.keyBoardShortcutsVar)
       )
+    
     helpMenu.add_command(
       label = 'Requirements (ctrl-r)', 
       command = lambda : self.openWeb(self.requirementsVar)
     )
+    
     self.add_cascade(menu = helpMenu, label = 'Help')
 
   def openDiag(self):
