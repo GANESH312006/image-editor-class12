@@ -284,7 +284,6 @@ class MenuBar(tk.Menu):
       label = 'Requirements (ctrl-r)', 
       command = lambda : self.openWeb(self.requirementsVar)
     )
-    
     self.add_cascade(menu = helpMenu, label = 'Help')
 
   def openDiag(self):
@@ -301,6 +300,7 @@ class MenuBar(tk.Menu):
       pass
   
   def exportImage(self):
+    # general attributes 
     formats = [
       ('PNG files', '*.png'), 
       ('JPEG files', '*.jpg')
