@@ -1,4 +1,5 @@
-# done by https://github.com/GANESH312006 and https://github.com/Shad18
+# done by https://github.com/GANESH312006 
+# https://github.com/Shad18
 
 try:
   import customtkinter as ctk 
@@ -19,8 +20,7 @@ except ModuleNotFoundError:
   print('Install The Required Python Packages!')
 except NameError:
   print('Please install the required Python Packages!')
-  
-# just a Test:)
+
 
 class App(ctk.CTk):
   def __init__(self):
