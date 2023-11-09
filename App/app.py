@@ -43,8 +43,6 @@ class App(ctk.CTk):
     self.imageImport = ImageImport(self, self.importImage)
     self.imageImport.grid(row = 0, column = 0, columnspan = 2, sticky = 'nsew')
     
-    # self.toplevelWindow = Toplevel(self)
-    
     # methods
     self.initParam()
     
