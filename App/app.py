@@ -205,7 +205,6 @@ class App(ctk.CTk):
 
       # Check if the file was saved successfully.
       if os.path.exists(exportStr):
-        # print(f'The file is saved to {exportStr}')
         CTkMessagebox(
           message=f"The file is successfully saved at -> {exportStr}",
           icon="check", 
