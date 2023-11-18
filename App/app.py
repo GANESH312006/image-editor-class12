@@ -53,7 +53,7 @@ class App(ctk.CTk):
 
     # event bindings
     try:
-      self.bind('<Escape>', func = lambda e : (self.destroy()))
+      self.bind('<Escape>', func = lambda e : self.menu.exitApp())
       self.bind('<Control-o>', func = lambda e : self.menu.openDiag())
       self.bind('<Control-n>', func = lambda e : self.menu.openDiag())
       self.bind('<Control-s>', func = lambda e : self.exportImage())
@@ -274,7 +274,7 @@ class MenuBar(tk.Menu):
     fileMenu.add_command(label = 'New Window', command = lambda : self.openNewWindow())
     fileMenu.add_command(label = 'Export (ctrl - s)', command = lambda : self.exportImage())
     fileMenu.add_separator() # To add a separator for the exit menu
-    fileMenu.add_command(label = 'Exit', command = lambda:self.app.quit())
+    fileMenu.add_command(label = 'Exit', command = lambda:self.exitApp())
     self.add_cascade(menu = fileMenu, label = 'File')
 
   def createHelpmenu(self):
@@ -343,6 +343,27 @@ class MenuBar(tk.Menu):
     self.app.image.resize()
     self.app.placeImg()
 
+  def exitApp(self):
+    mb = CTkMessagebox(
+      title = 'quit', 
+      icon = 'warning', 
+      message = 'Do You Really Want To QUIT the App?', 
+      option_1 = 'Cancel',
+      option_2 = 'Yes', 
+      sound = True, 
+      corner_radius = 10, 
+      cancel_button = 'circle',
+      cancel_button_color = 'red', 
+      fg_color ='#1f191c', 
+      bg_color = '#1f191c'
+      )
+    
+    msgData = mb.get()
+    
+    # to exit app
+    if (msgData == 'Yes'):
+      self.app.quit()
+    
 if (__name__ == '__main__'):
   try:
     appMain = App()
