@@ -208,21 +208,39 @@ class App(ctk.CTk):
         CTkMessagebox(
           message=f"The file is successfully saved at -> {exportStr}",
           icon="check", 
-          title = 'File saved'
+          title = 'File saved',
+          sound = True, 
+          corner_radius = 10, 
+          cancel_button = 'circle',
+          cancel_button_color = 'red', 
+          fg_color ='#1f191c', 
+          bg_color = '#1f191c'
           )
 
       else:
         CTkMessagebox(
           message=f"The file unable to save at -> {exportStr}",
           icon="warning", 
-          title = 'File saved'
+          title = 'File saved', 
+          sound = True, 
+          corner_radius = 10, 
+          cancel_button = 'circle',
+          cancel_button_color = 'red', 
+          fg_color ='#1f191c', 
+          bg_color = '#1f191c'
           )
 
     except FileNotFoundError as e:
       CTkMessagebox(
           message=f"The file {name} unable to save at -> {exportStr}",
           icon="warning", 
-          title = 'Unable to save'
+          title = 'Unable to save', 
+          sound = True, 
+          corner_radius = 10, 
+          cancel_button = 'circle',
+          cancel_button_color = 'red', 
+          fg_color ='#1f191c', 
+          bg_color = '#1f191c'
           )
     except Exception:
       pass
