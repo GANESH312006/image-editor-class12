@@ -196,6 +196,43 @@ class FilePathPanel(Panel):
     # entry
     entry = ctk.CTkEntry(self, textvariable = self.pathStr)
     entry.pack(expand = True, fill = 'both', padx = 5, pady = 5)
+
+    # def on_entry_click():
+    #   if entry.get() == 'Enter your path...':
+    #     entry.delete(0, "end") # delete all the text in the entry
+    #     entry.insert(0, '') #Insert blank for user input
+    #     entry.config(fg = 'black')
+
+    # def on_focusout():
+    #   if entry.get() == '':
+    #     entry.insert(0, 'Enter your path...')
+    #     entry.config(fg = 'grey')
+
+    # entry.insert(0, 'Enter your Path!')
+
+    # # entry events
+    # entry.bind('<FocusIn>', lambda e: on_entry_click())
+    # entry.bind('<FocusOut>', lambda e: on_focusout())
+    self.firstclick = True
+
+    def on_entry_click(e):
+        """function that gets called whenever entry1 is clicked"""        
+
+        if self.firstclick: # if this is the first time they clicked it
+            self.firstclick = False
+            entry.delete(0, "end") # delete all the text in the entry
+    
+    def on_focusout(e):
+     if entry.get() == ' ':
+        entry.insert(0, 'Enter File path...')
+        entry.config(fg = 'grey')
+
+    entry.insert(0, 'Enter File Path!')
+
+    #  events
+    entry.bind('<FocusIn>', on_entry_click)
+    entry.bind('<FocusOut>', on_focusout)
+
     
   
   def openFileDiag(self):

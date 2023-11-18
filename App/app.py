@@ -6,6 +6,7 @@ try:
   from imageWidgets import * 
   import tkinter as tk
   from tkinter import filedialog as fd
+  from CTkMessagebox import CTkMessagebox
   import webbrowser as wb
   from panels import *
   import os 
@@ -190,10 +191,10 @@ class App(ctk.CTk):
     try:
       # Check if the path and name variables are empty.
       if not name:
-        print('Enter name of the file!')
+        CTkMessagebox(title="Enter Name",message="Enter the name of the file!",icon="cancel")
         return
       if (not path):
-        print('Enter path of the file!')
+        CTkMessagebox(title="Enter Path",message="Enter the path of the file!",icon="cancel")
         return
       
       # Create the export string.
@@ -204,12 +205,26 @@ class App(ctk.CTk):
 
       # Check if the file was saved successfully.
       if os.path.exists(exportStr):
-        print(f'The file is saved to {exportStr}')
+        # print(f'The file is saved to {exportStr}')
+        CTkMessagebox(
+          message=f"The file is successfully saved at -> {exportStr}",
+          icon="check", 
+          title = 'File saved'
+          )
+
       else:
-        print(f'The file is not saved to {exportStr}')
+        CTkMessagebox(
+          message=f"The file unable to save at -> {exportStr}",
+          icon="warning", 
+          title = 'File saved'
+          )
 
     except FileNotFoundError as e:
-      print(e)
+      CTkMessagebox(
+          message=f"The file {name} unable to save at -> {exportStr}",
+          icon="warning", 
+          title = 'Unable to save'
+          )
     except Exception:
       pass
      
