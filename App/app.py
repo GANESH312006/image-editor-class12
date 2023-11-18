@@ -191,10 +191,30 @@ class App(ctk.CTk):
     try:
       # Check if the path and name variables are empty.
       if not name:
-        CTkMessagebox(title="Enter Name",message="Enter the name of the file!",icon="cancel")
+        CTkMessagebox(
+          title="Enter Name",
+          message="Enter the name of the file!",
+          icon="cancel", 
+          sound = True, 
+          corner_radius = 10, 
+          cancel_button = 'circle',
+          cancel_button_color = 'red', 
+          fg_color ='#1f191c', 
+          bg_color = '#1f191c'
+          )
         return
       if (not path):
-        CTkMessagebox(title="Enter Path",message="Enter the path of the file!",icon="cancel")
+        CTkMessagebox(
+          title="Enter Path",
+          message="Enter the path of the file!",
+          icon="cancel", 
+          sound = True, 
+          corner_radius = 10, 
+          cancel_button = 'circle',
+          cancel_button_color = 'red', 
+          fg_color ='#1f191c', 
+          bg_color = '#1f191c'
+          )
         return
       
       # Create the export string.
