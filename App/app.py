@@ -201,7 +201,6 @@ class App(ctk.CTk):
           cancel_button_color = 'red', 
           fg_color ='#1f191c', 
           bg_color = '#1f191c', 
-          fade_in_duration = 0.05
           )
         return
       if (not path):
@@ -215,7 +214,6 @@ class App(ctk.CTk):
           cancel_button_color = 'red', 
           fg_color ='#1f191c', 
           bg_color = '#1f191c', 
-          fade_in_duration = 0.05
           )
         return
       
@@ -237,7 +235,6 @@ class App(ctk.CTk):
           cancel_button_color = 'red', 
           fg_color ='#1f191c', 
           bg_color = '#1f191c', 
-          fade_in_duration = 0.05
           )
 
       else:
@@ -251,7 +248,6 @@ class App(ctk.CTk):
           cancel_button_color = 'red', 
           fg_color ='#1f191c', 
           bg_color = '#1f191c', 
-          fade_in_duration = 0.05
           )
 
     except FileNotFoundError as e:
@@ -398,8 +394,7 @@ class MenuBar(tk.Menu):
       cancel_button = 'circle',
       cancel_button_color = 'red', 
       fg_color ='#1f191c', 
-      bg_color = '#1f191c', 
-      fade_in_duration = 0.05
+      bg_color = '#1f191c'
       )
     
     msgData = mb.get()
