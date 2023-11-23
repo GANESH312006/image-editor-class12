@@ -1,5 +1,5 @@
 import customtkinter as ctk 
-from AppOpener import open as op
+from AppOpener import open as op#
 from customtkinter import CTkImage
 from tkinter import filedialog as fd
 from tkinter import Canvas
@@ -17,7 +17,7 @@ class ImageImport(ctk.CTkFrame):
     self.openCamBtn = ctk.CTkButton(
       master = self, 
       text = 'Take a Picture', 
-      command = lambda : op('camera'), 
+      # command = lambda : op('camera'), 
       hover_color ="#d10d65", 
       fg_color = "#ff2285", 
       font = ('Merriweather', 15),

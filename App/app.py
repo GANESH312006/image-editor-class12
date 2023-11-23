@@ -54,7 +54,7 @@ class App(ctk.CTk):
 
     # event bindings
     try:
-      self.bind('<Escape>', func = lambda e : self.menu.exitApp())
+      self.bind('<Escape>', func = lambda e : self.close())
       self.bind('<Control-o>', func = lambda e : self.menu.openDiag())
       self.bind('<Control-n>', func = lambda e : self.menu.openDiag())
       self.bind('<Control-s>', func = lambda e : self.exportImage())
@@ -302,6 +302,27 @@ class App(ctk.CTk):
     except Exception as e:
       print(e)
     
+  def close(self):
+    mb = CTkMessagebox(
+      title = 'quit', 
+      icon = 'warning', 
+      message = 'Do You Really Want To QUIT the App?', 
+      option_1 = 'Cancel',
+      option_2 = 'Yes', 
+      sound = True, 
+      corner_radius = 10, 
+      cancel_button = 'circle',
+      cancel_button_color = 'red', 
+      fg_color ='#1f191c', 
+      bg_color = '#1f191c'
+      )
+    
+    msgData = mb.get()
+    
+    # to exit app
+    if (msgData == 'Yes'):
+      self.destroy()
+      
 class MenuBar(tk.Menu):
   def __init__(self,parent, importFunc, exportFunc):
     super().__init__(parent)
