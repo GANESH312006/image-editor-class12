@@ -10,6 +10,7 @@ try:
   import webbrowser as wb
   from panels import *
   import os 
+  import AppOpener
   from menu import Menu
   from menu import *
   from PIL import Image
@@ -201,7 +202,7 @@ class App(ctk.CTk):
           cancel_button_color = 'red', 
           fg_color ='#1f191c', 
           bg_color = '#1f191c', 
-          fade_in_duration = 0.05
+          fade_in_duration = 0
           )
         return
       if (not path):
@@ -215,7 +216,7 @@ class App(ctk.CTk):
           cancel_button_color = 'red', 
           fg_color ='#1f191c', 
           bg_color = '#1f191c', 
-          fade_in_duration = 0.05
+          fade_in_duration = 0
           )
         return
       
@@ -407,7 +408,7 @@ class MenuBar(tk.Menu):
     # to exit app
     if (msgData == 'Yes'):
       self.app.quit()
-    
+      
 if (__name__ == '__main__'):
   try:
     appMain = App()
