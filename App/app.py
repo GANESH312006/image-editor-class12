@@ -17,10 +17,10 @@ try:
   from PIL import ImageOps
   from PIL import ImageEnhance
   from PIL import ImageFilter
-except ModuleNotFoundError:
-  print('Install The Required Python Packages!')
-except NameError:
-  print('Please install the required Python Packages!')
+except ModuleNotFoundError as e :
+  print('Install The Required Python Packages!',e)
+except NameError as e :
+  print('Please install the required Python Packages!',e)
 
 
 class App(ctk.CTk):
@@ -62,7 +62,7 @@ class App(ctk.CTk):
       self.bind('<Alt-k>', func = lambda e : self.menu.openWeb(url = self.menu.keyBoardShortcutsVar))
     except Exception as e:
       print(e)
-
+      
     # run
     self.mainloop()    
     
