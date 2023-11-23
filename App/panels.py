@@ -56,25 +56,6 @@ class FileNamePanel(Panel):
       
       frame = ctk.CTkFrame(self, fg_color = 'transparent')
       
-      self.firstclick = True
-
-      def on_entry_click(e):
-          """function that gets called whenever entry1 is clicked"""        
-
-          if self.firstclick: # if this is the first time they clicked it
-              self.firstclick = False
-              self.entry.delete(0, "end") # delete all the text in the entry
-      
-      def on_focusout(e):
-        if self.entry.get() == ' ':
-          self.entry.insert(0, 'Enter File path...')
-          self.entry.config(fg = 'grey')
-
-      self.entry.insert(0, 'Enter File Path!')
-
-      #  events
-      self.entry.bind('<FocusIn>', on_entry_click)
-      self.entry.bind('<FocusOut>', on_focusout)
       
       jpgCheck = ctk.CTkCheckBox(
         frame, 
