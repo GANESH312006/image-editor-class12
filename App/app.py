@@ -287,7 +287,18 @@ class App(ctk.CTk):
     try:
       export_str = f'{path}/{filename}.{format}'
       self.image.save(export_str)
-      print(f'Image exported to {export_str}')
+      CTkMessagebox(
+          message=f"The file is saved at -> {export_str}",
+          icon="check", 
+          title = 'File saved', 
+          sound = True, 
+          corner_radius = 10, 
+          cancel_button = 'circle',
+          cancel_button_color = 'red', 
+          fg_color ='#1f191c', 
+          bg_color = '#1f191c', 
+          )
+
     except Exception as e:
       print(e)
     
@@ -301,6 +312,7 @@ class MenuBar(tk.Menu):
     # init attributes
     self.importFunc = importFunc
     self.exportFunc = exportFunc
+    self.toplevel_window = None
 
   def openWeb(self,url):
     wb.open(url)
@@ -310,7 +322,7 @@ class MenuBar(tk.Menu):
     fileMenu = tk.Menu(master = self, tearoff = False)
     fileMenu.add_command(label = 'New (ctrl - n)', command = lambda : self.openDiag())  
     fileMenu.add_command(label = 'Open' '(ctrl - o)', command = lambda:self.openDiag())
-    fileMenu.add_command(label = 'New Window', command = lambda : self.openNewWindow())
+    fileMenu.add_command(label = 'New Window', command = lambda : self.open_toplevel())
     fileMenu.add_command(label = 'Export (ctrl - s)', command = lambda : self.exportImage())
     fileMenu.add_separator() # To add a separator for the exit menu
     fileMenu.add_command(label = 'Exit', command = lambda:self.exitApp())
@@ -346,11 +358,9 @@ class MenuBar(tk.Menu):
     except Exception as e:
       pass
   
-  def openNewWindow(self):
-    try:
-      appMain = App()
-    except Exception:
-      pass
+  
+  def open_toplevel(self):
+   app = App()
   
   def exportImage(self):
     # general attributes 
@@ -406,5 +416,5 @@ class MenuBar(tk.Menu):
 if (__name__ == '__main__'):
   try:
     appMain = App()
-  except Exception as e:
-    print(e)
+  except Exception:
+    pass

@@ -46,46 +46,70 @@ class SliderPanel(Panel):
 class FileNamePanel(Panel):
   def __init__(self, parent, nameStr, fileStr):
     super().__init__(parent = parent)
-    
-    self.fileStr = fileStr
-    self.nameStr = nameStr # weird otter -> weird_otter
-    self.nameStr.trace('w', self.updateText)
-    
-    self.entry = ctk.CTkEntry(self, textvariable = self.nameStr,).pack(fill = 'x', padx = 20, pady = 20)
-    frame = ctk.CTkFrame(self, fg_color = 'transparent')
-    
-    jpgCheck = ctk.CTkCheckBox(
-      frame, 
-      text = 'jpg', 
-      variable = self.fileStr, 
-      onvalue = 'jpg', 
-      offvalue = 'png', 
-      command = lambda:self.click('jpg'), 
-      hover = True,
-      fg_color = '#ff2285', 
-      checkmark_color = '#f7f7f7', 
-      hover_color = '#3b3639'
-      )
-    jpgCheck.pack(side = 'left', fill = 'x', expand = True)
-    
-    pngCheck = ctk.CTkCheckBox(
-      frame, 
-      text = 'png', 
-      variable = self.fileStr, 
-      onvalue = 'png', 
-      offvalue = 'jpg', 
-      command = lambda:self.click('png'),
-      hover = True, 
-      fg_color = '#ff2285', 
-      checkmark_color = '#f7f7f7', 
-      hover_color = '#3b3639', 
-      )
-    pngCheck.pack(side = 'left', fill = 'x', expand = True)
-    
-    frame.pack(expand = True, fill = 'x', padx = 20)
-    
-    self.output = ctk.CTkLabel(self, text = '')
-    self.output.pack()
+    try:
+      self.fileStr = fileStr
+      self.nameStr = nameStr # weird otter -> weird_otter
+      self.nameStr.trace('w', self.updateText)
+      
+      self.entry = ctk.CTkEntry(self, textvariable = self.nameStr)
+      self.entry.pack(fill = 'x', padx = 20, pady = 20)
+      
+      frame = ctk.CTkFrame(self, fg_color = 'transparent')
+      
+      self.firstclick = True
+
+      def on_entry_click(e):
+          """function that gets called whenever entry1 is clicked"""        
+
+          if self.firstclick: # if this is the first time they clicked it
+              self.firstclick = False
+              self.entry.delete(0, "end") # delete all the text in the entry
+      
+      def on_focusout(e):
+        if self.entry.get() == ' ':
+          self.entry.insert(0, 'Enter File path...')
+          self.entry.config(fg = 'grey')
+
+      self.entry.insert(0, 'Enter File Path!')
+
+      #  events
+      self.entry.bind('<FocusIn>', on_entry_click)
+      self.entry.bind('<FocusOut>', on_focusout)
+      
+      jpgCheck = ctk.CTkCheckBox(
+        frame, 
+        text = 'jpg', 
+        variable = self.fileStr, 
+        onvalue = 'jpg', 
+        offvalue = 'png', 
+        command = lambda:self.click('jpg'), 
+        hover = True,
+        fg_color = '#ff2285', 
+        checkmark_color = '#f7f7f7', 
+        hover_color = '#3b3639'
+        )
+      jpgCheck.pack(side = 'left', fill = 'x', expand = True)
+      
+      pngCheck = ctk.CTkCheckBox(
+        frame, 
+        text = 'png', 
+        variable = self.fileStr, 
+        onvalue = 'png', 
+        offvalue = 'jpg', 
+        command = lambda:self.click('png'),
+        hover = True, 
+        fg_color = '#ff2285', 
+        checkmark_color = '#f7f7f7', 
+        hover_color = '#3b3639', 
+        )
+      pngCheck.pack(side = 'left', fill = 'x', expand = True)
+      
+      frame.pack(expand = True, fill = 'x', padx = 20)
+      
+      self.output = ctk.CTkLabel(self, text = '')
+      self.output.pack()
+    except Exception as err:
+      print(err)
   
   def updateText(self, *args):
     if (self.nameStr.get()):
@@ -196,23 +220,7 @@ class FilePathPanel(Panel):
     # entry
     entry = ctk.CTkEntry(self, textvariable = self.pathStr)
     entry.pack(expand = True, fill = 'both', padx = 5, pady = 5)
-
-    # def on_entry_click():
-    #   if entry.get() == 'Enter your path...':
-    #     entry.delete(0, "end") # delete all the text in the entry
-    #     entry.insert(0, '') #Insert blank for user input
-    #     entry.config(fg = 'black')
-
-    # def on_focusout():
-    #   if entry.get() == '':
-    #     entry.insert(0, 'Enter your path...')
-    #     entry.config(fg = 'grey')
-
-    # entry.insert(0, 'Enter your Path!')
-
-    # # entry events
-    # entry.bind('<FocusIn>', lambda e: on_entry_click())
-    # entry.bind('<FocusOut>', lambda e: on_focusout())
+    
     self.firstclick = True
 
     def on_entry_click(e):
