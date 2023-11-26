@@ -22,7 +22,7 @@ CLOSE_RED = '#e04436'
 BACKGROUND = '#1f191c'
 SLIDER_BG = '#64686b'
 
-# dropdown menu color 
+# dropdown menu color
 DROPDOWN_MAIN_COLOR= '#444'
 DROPDOWN_HOVER_COLOR='#2b2121'
 DROPDOWN_MENU_COLOR='#666'
