@@ -14,7 +14,6 @@ class Menu(ctk.CTkTabview):
     )
     self.grid(row = 0, column = 0, sticky = 'nsew', pady = 10, padx = 10)
     
-    
     # tabs
     self.add('Position')
     self.add('Color')
