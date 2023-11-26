@@ -13,7 +13,6 @@ def ripple_effect(event):
             canvas.after(10, expand_ripple)
         else:
             canvas.delete(ripple)  # Remove the ripple when it's large enough
-
     expand_ripple()
 
 root = ctk.CTk()
