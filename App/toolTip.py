@@ -111,8 +111,7 @@ class Tooltip:
       label.grid(
         padx=(pad[0], pad[2]),
         pady=(pad[1], pad[3]),
-        sticky=tk.NSEW
-      )
+        sticky=tk.NSEW)
       win.grid()
 
       x, y = tip_pos_calculator(widget, label)
