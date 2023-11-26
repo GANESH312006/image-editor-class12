@@ -51,8 +51,7 @@ class ImageOutput(ctk.CTkCanvas):
       background = BACKGROUND, 
       bd = 0, 
       highlightthickness = 0, 
-      relief = 'ridge', 
-      
+      relief = 'ridge'
       )
     self.bind('<Configure>', resizeImage)
     self.grid(row = 0, column = 1, sticky = 'nsew', padx = 10, pady = 10)
