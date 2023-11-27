@@ -341,12 +341,15 @@ class MenuBar(tk.Menu):
   def createFileMenu(self):
     fileMenu = tk.Menu(master = self, tearoff = False)
     fileMenu = tk.Menu(master = self, tearoff = False)
+    
+    # implementation of commands to the file menu
     fileMenu.add_command(label = 'New (ctrl - n)', command = lambda : self.openDiag())  
     fileMenu.add_command(label = 'Open' '(ctrl - o)', command = lambda:self.openDiag())
     fileMenu.add_command(label = 'New Window', command = lambda : self.open_toplevel())
     fileMenu.add_command(label = 'Export (ctrl - s)', command = lambda : self.exportImage())
     fileMenu.add_separator() # To add a separator for the exit menu
     fileMenu.add_command(label = 'Exit', command = lambda:self.exitApp())
+    
     self.add_cascade(menu = fileMenu, label = 'File')
 
   def createHelpmenu(self):
